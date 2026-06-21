@@ -1,6 +1,5 @@
 'use client';
 
-import { Icon } from '@/lib/icons';
 import type { AccentName, Itinerary, ViewKey } from '@/lib/types';
 import { Settings } from './Settings';
 
@@ -92,28 +91,6 @@ export function Header({ itinerary, view, accent, accentName, showKorean, todayD
           </nav>
 
           <button
-            onClick={() => onView('prep')}
-            aria-label="Before you fly checklist"
-            aria-current={view === 'prep' ? 'page' : undefined}
-            title="Before you fly"
-            className="u-nav"
-            style={iconBtn(view === 'prep', accent)}
-          >
-            <Icon name="clipboard" color="currentColor" size={18} />
-          </button>
-
-          <button
-            onClick={() => onView('pack')}
-            aria-label="Packing list"
-            aria-current={view === 'pack' ? 'page' : undefined}
-            title="Packing list"
-            className="u-nav"
-            style={iconBtn(view === 'pack', accent)}
-          >
-            <Icon name="suitcase" color="currentColor" size={18} />
-          </button>
-
-          <button
             onClick={() => onView('info')}
             aria-label="Essentials & emergency info"
             aria-current={view === 'info' ? 'page' : undefined}
@@ -150,20 +127,4 @@ export function Header({ itinerary, view, accent, accentName, showKorean, todayD
       </div>
     </header>
   );
-}
-
-function iconBtn(active: boolean, accent: string): React.CSSProperties {
-  return {
-    width: 40,
-    height: 40,
-    display: 'grid',
-    placeItems: 'center',
-    borderRadius: 999,
-    border: '2px solid #1A1310',
-    background: active ? accent : '#fff',
-    color: active ? '#fff' : '#1A1310',
-    cursor: 'pointer',
-    flex: 'none',
-    transition: 'transform .16s ease, background .16s ease',
-  };
 }

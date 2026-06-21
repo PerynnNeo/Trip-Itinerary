@@ -25,6 +25,14 @@ body {
   overflow-x: clip;
 }
 
+/* iOS Safari renders <button> text in the system blue unless a color is set.
+   Make buttons inherit the page ink so custom buttons (route cards, the
+   "before you go"/"packing" cards, etc.) render dark on phones. Buttons that set
+   their own color inline (nav pills, shield) override this and are unaffected. */
+button {
+  color: inherit;
+}
+
 :root {
   --ink: #1a1310;
   --cream: #fff6ec;
