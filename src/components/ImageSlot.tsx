@@ -3,6 +3,60 @@
 import { useRef, useState, type CSSProperties } from 'react';
 import { usePhotos } from './PhotosProvider';
 
+/** Longest edge (px) we keep — plenty sharp on phones, well under the upload limit. */
+const MAX_EDGE = 2048;
+/** Target byte ceiling — comfortably under Vercel's ~4.5 MB function body limit. */
+const SIZE_CEILING = 3_800_000;
+
+/**
+ * Downscale + JPEG-compress an image in the browser so the upload fits the
+ * serverless request-body limit (and the photo grid loads faster). Respects EXIF
+ * orientation. Falls back to the original bytes if it can't be decoded (e.g. an
+ * animated GIF, or an unsupported codec) so nothing is ever silently dropped.
+ */
+async function shrinkImage(file: File): Promise<{ blob: Blob; type: string }> {
+  if (file.type === 'image/gif') return { blob: file, type: file.type };
+
+  let bitmap: ImageBitmap;
+  try {
+    bitmap = await createImageBitmap(file, { imageOrientation: 'from-image' });
+  } catch {
+    return { blob: file, type: file.type };
+  }
+
+  const scale = Math.min(1, MAX_EDGE / Math.max(bitmap.width, bitmap.height));
+  const w = Math.max(1, Math.round(bitmap.width * scale));
+  const h = Math.max(1, Math.round(bitmap.height * scale));
+
+  const canvas = document.createElement('canvas');
+  canvas.width = w;
+  canvas.height = h;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) {
+    bitmap.close();
+    return { blob: file, type: file.type };
+  }
+  ctx.drawImage(bitmap, 0, 0, w, h);
+  bitmap.close();
+
+  let quality = 0.85;
+  let out = await toJpeg(canvas, quality);
+  while (out && out.size > SIZE_CEILING && quality > 0.4) {
+    quality -= 0.12;
+    out = await toJpeg(canvas, quality);
+  }
+
+  // Prefer the smaller result, but never hand back an original that itself
+  // exceeds the limit when we have a compressed alternative.
+  if (!out) return { blob: file, type: file.type };
+  if (file.size <= out.size && file.size <= SIZE_CEILING) return { blob: file, type: file.type };
+  return { blob: out, type: 'image/jpeg' };
+}
+
+function toJpeg(canvas: HTMLCanvasElement, quality: number): Promise<Blob | null> {
+  return new Promise((resolve) => canvas.toBlob((b) => resolve(b), 'image/jpeg', quality));
+}
+
 interface ImageSlotProps {
   slotId: string;
   placeholder?: string;
@@ -37,12 +91,17 @@ export function ImageSlot({ slotId, placeholder = 'Drop a photo here', alt, shap
     setBusy(true);
     setError(null);
     try {
+      // Phone photos are routinely 3–8 MB, but Vercel functions reject request
+      // bodies over ~4.5 MB (FUNCTION_PAYLOAD_TOO_LARGE). Downscale + compress in
+      // the browser first so the upload always fits — and the gallery loads faster.
+      const { blob, type } = await shrinkImage(file);
       const res = await fetch(`/api/photos/${slotId}`, {
         method: 'PUT',
-        headers: { 'content-type': file.type },
-        body: file,
+        headers: { 'content-type': type },
+        body: blob,
       });
       if (!res.ok) {
+        if (res.status === 413) throw new Error('Photo too large even after shrinking — try another image.');
         const body = (await res.json().catch(() => null)) as { error?: string } | null;
         throw new Error(body?.error ?? `Upload failed (${res.status})`);
       }
