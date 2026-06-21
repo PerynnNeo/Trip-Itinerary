@@ -1,7 +1,6 @@
 // Packing checklist for the Seoul × Incheon trip (7–14 Nov 2026, ~5–12 °C).
-// Rendered by PackingView; each item is checkable and the ticks live in the
-// shared trip state under "pk:{groupIndex}-{itemIndex}" keys. "×3" means one each
-// for Jolin, Perris and Perynn.
+// Rendered by PackingView; each traveller has their OWN list — ticks live in the
+// synced trip state under "pk:{personKey}:{groupIndex}-{itemIndex}" keys.
 
 export interface PackGroup {
   title: string;
@@ -18,15 +17,15 @@ export const PACKING: PackGroup[] = [
     icon: 'wallet',
     tint: '#FFF7E8',
     items: [
-      'Passports — valid 6+ months ×3',
+      'Passport — valid 6+ months',
       'Flight tickets / boarding passes (checked in ~48 h before)',
-      'e-Arrival Card QR — filed at e-arrivalcard.go.kr within 3 days of flying ×3',
+      'e-Arrival Card QR — filed at e-arrivalcard.go.kr within 3 days of flying',
       'Travel insurance policy (saved offline)',
       'Credit / debit cards — bank notified',
       'Some KRW cash for day one (before T-money is loaded)',
-      'T-money cards (or buy at the airport)',
+      'T-money card (or buy at the airport)',
       'Hotel booking confirmations (saved offline)',
-      'Photo / printout of each passport, kept separately',
+      'Photo / printout of your passport, kept separately',
     ],
   },
   {
@@ -34,13 +33,13 @@ export const PACKING: PackGroup[] = [
     icon: 'plug',
     tint: '#EAF2FF',
     items: [
-      'Phones + chargers ×3',
+      'Phone + charger',
       'Plug adapters — Korea is Type C/F, 220 V (SG Type G won’t fit)',
       'Power bank — in your carry-on, not checked luggage',
       'eSIM installed / pocket WiFi arranged',
       'Charging cables (USB-C / Lightning)',
       'Earphones',
-      'Camera + spare battery & memory card (for the hanbok shoot)',
+      'Digicam + spare battery & memory card',
     ],
   },
   {
@@ -48,17 +47,16 @@ export const PACKING: PackGroup[] = [
     icon: 'shirt',
     tint: '#F3EEFF',
     items: [
-      'Warm padded jacket / coat ×3',
-      'Thermal innerwear (Heattech) base layers',
-      'Sweaters / long-sleeve tops',
-      'Jeans / warm trousers',
-      'Comfortable walking shoes — you walk a lot ×3',
-      'Flat shoes to wear under the hanbok',
-      'Scarf, gloves & beanie',
-      'Warm socks & underwear (8 days)',
-      'One smart-casual outfit (Samwon Garden dinner)',
-      'Sleepwear',
-      'Packable umbrella / light rain layer',
+      'Outfits — about 8 (8 days / 7 nights in Korea)',
+      'Jacket',
+      'Undergarments',
+      'Pajamas',
+      'Slippers',
+      'Umbrella',
+      'Socks',
+      'Scarf',
+      'Gloves',
+      'Thermal innerwear',
     ],
   },
   {
@@ -85,7 +83,6 @@ export const PACKING: PackGroup[] = [
     items: [
       'A foldable empty bag / spare duffel for purchases',
       'Reusable tote for daily shopping',
-      'Luggage scale (dodge excess-baggage fees on the way home)',
       'Ziplock bags (snacks, liquids, skincare samples)',
       'Laundry / shoe bag',
     ],
@@ -98,7 +95,6 @@ export const PACKING: PackGroup[] = [
       'Neck pillow & eye mask (midnight flight)',
       'Empty water bottle (fill after security)',
       'Snacks for the flight',
-      'A change of clothes / essentials in your carry-on',
       'Luggage locks & tags',
     ],
   },

@@ -46,7 +46,7 @@ export function PackingView({ state, accent, onToggleTodo }: PackingViewProps) {
         Packing list
       </h1>
       <p style={{ margin: '0 0 16px', color: '#6B5E54', fontSize: 14.5, maxWidth: 580 }}>
-        Cold-weather Seoul, 5–12 °C. Each traveller has their own list — pick yours below and tick as you pack. &ldquo;×3&rdquo; means everyone needs one. Lists sync live across phones.
+        Cold-weather Seoul, 5–12 °C. Each traveller has their own list — pick yours below and tick as you pack. Lists sync live across phones.
       </p>
 
       {/* Whose list */}

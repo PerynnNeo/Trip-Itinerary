@@ -315,17 +315,17 @@ export const RAW_DAYS: Day[] = [
       },
       {
         "t": "19:00 – 21:00",
-        "ti": "Korean BBQ — Euljiro 3-ga",
+        "ti": "Dinner — up to you",
         "kr": "을지로3가",
         "ty": "DINING",
-        "su": "Hip industrial back-alley charcoal BBQ.",
-        "ad": "Alleys around Supyo-ro 8-gil, Jung-gu (Exit 7/8)",
-        "ho": "Most BBQ 17:00–23:00 (walk-in)",
-        "pp": "~₩22,000–28,000 pp",
-        "to": "~₩66,000–84,000 total (SGD 60–76)",
-        "wh": "Find a smoky samgyeopsal or galmaegi-sal spot with charcoal table grills. Grill, wrap in lettuce with garlic and gochujang, wash down with makgeolli or soju.",
-        "ip": "Pick a place where Koreans — not just tourists — are eating. Handwritten price boards are a good sign. Cards mostly accepted now.",
-        "on": "10-min walk back to Myeongdong. ~21:30."
+        "su": "Your call tonight — here are the best spots nearby.",
+        "ad": "Euljiro 3-ga BBQ alleys, Jung-gu (near your hotel)",
+        "ho": "Most dinner spots 17:00–23:00 (walk-in)",
+        "pp": "~₩33,000 pp (SGD ~30)",
+        "to": "~₩99,000 total for 3 (SGD ~90)",
+        "wh": "Dinner's flexible tonight — eat wherever you're hungry. Top picks: the Euljiro 3-ga BBQ alleys near the hotel (smoky charcoal samgyeopsal in hip back-alleys), or grab a bite in Gangnam / Garosu-gil before heading back. Aim for a place busy with locals and handwritten price boards.",
+        "ip": "Budget around SGD 30 each — most casual Korean BBQ or a stew lands there. Cards widely accepted.",
+        "on": "~10–15 min back to the hotel in Myeongdong."
       }
     ]
   },
@@ -411,16 +411,16 @@ export const RAW_DAYS: Day[] = [
       },
       {
         "t": "18:30 – 20:30",
-        "ti": "Dinner — Mapo Galbi / Yeonnam-dong",
+        "ti": "Dinner — up to you",
         "kr": "연남동",
         "ty": "DINING",
-        "su": "Institution galbi, or graze Yeonnam-dong’s alleys.",
-        "ad": "Mapo-daero near Mapo Stn, or Yeonnam-ro, Mapo-gu",
-        "ho": "Galbi 17:00–23:00; Yeonnam from 18:00",
-        "pp": "~₩25,000–35,000 pp",
-        "to": "~₩75,000–105,000 total (SGD 68–95)",
-        "wh": "\"Mapo Galbi\" is an institution — pick a spot busy with Korean families. Or graze Yeonnam-dong’s eclectic alleys (stews, pasta, tacos, craft beer) and stroll the charming streets after.",
-        "ip": "Yeonnam-dong is lovely to walk even in November. Return: Line 2 / AREX → Seoul Station → Line 4 → Myeongdong.",
+        "su": "Your call — Hongdae & Yeonnam-dong are full of options.",
+        "ad": "Yeonnam-dong / Hongdae, Mapo-gu",
+        "ho": "Most spots open from ~17:00–18:00",
+        "pp": "~₩33,000 pp (SGD ~30)",
+        "to": "~₩99,000 total for 3 (SGD ~90)",
+        "wh": "Dinner's your call — you're spoilt for choice here. Top picks: graze Yeonnam-dong’s alleys (Korean stews, pasta, tacos, craft beer) for a relaxed wander, or a busy galbi / BBQ spot around Mapo. Follow the queues of Korean families.",
+        "ip": "Around SGD 30 each covers a good BBQ or hearty meal. Yeonnam-dong is lovely to stroll after, even in November.",
         "on": "~25–30 min back to hotel by ~21:30."
       }
     ]
@@ -521,15 +521,15 @@ export const RAW_DAYS: Day[] = [
       },
       {
         "t": "18:00 – 19:30",
-        "ti": "Korean BBQ — Seongsu-dong",
+        "ti": "Dinner — up to you",
         "kr": "성수동",
         "ty": "DINING",
-        "su": "Proper neighbourhood BBQ to close the day.",
-        "ad": "Yeonmujang-gil area, Seongdong-gu (search 성수 갈비)",
+        "su": "Your call — Seongsu is full of great dinner spots.",
+        "ad": "Seongsu-dong, Seongdong-gu (search 성수 맛집)",
         "ho": "Most 17:00–23:00",
-        "pp": "~₩22,000–30,000 pp",
-        "to": "~₩66,000–90,000 total (SGD 60–82)",
-        "wh": "Order galmaegi-sal, samgyeopsal or chadolbaegi at a spot with a Korean queue. Wrap in ssam with garlic and doenjang.",
+        "pp": "~₩33,000 pp (SGD ~30)",
+        "to": "~₩99,000 total for 3 (SGD ~90)",
+        "wh": "Round off the Seongsu day wherever appeals — the neighbourhood is packed with great food. Top picks: a proper Seongsu Korean BBQ (galmaegi-sal or samgyeopsal at a spot with a local queue), or one of the trendy warehouse-conversion restaurants. Wrap your meat in ssam with garlic and doenjang.",
         "ip": "Last night at Hotel 1 — pack tonight, lay out tomorrow’s outlet outfit and charge devices.",
         "on": "Line 2 Seongsu → DDP → Line 4 → Myeongdong. Hotel by ~21:00."
       }
@@ -637,7 +637,7 @@ export const RAW_DAYS: Day[] = [
         "ho": "~06:30–10:00",
         "pp": "Incl. or ~₩20,000–30,000 pp",
         "to": "~₩60,000–90,000 total if not included",
-        "wh": "A full breakfast before a big walking day. Use your COCORY colour cards to plan which brand colours and cuts to prioritise — this is your biggest shopping day.",
+        "wh": "A full breakfast before your biggest shopping day. You already have your palette from the COCORY colour analysis done on Day 1 — pull up your colour card and use it to zero in on the right brand shades and cuts at the outlet.",
         "ip": "Check at check-in whether breakfast is in your rate. The hotel is close enough to browse leisurely.",
         "on": "Short walk/taxi to the outlet (opens 10:30)."
       },
@@ -998,20 +998,17 @@ export const TODO_LIST: string[] = [
   "Book COCORY (Personal Color Analysis + Best Add-ons, Package A) at the Myeongdong branch, cocorycolor.com — 2–4 weeks ahead, for Sat 7 Nov (Day 1 afternoon)",
   "File Korea's MANDATORY e-Arrival Card at e-arrivalcard.go.kr within 3 days before you fly — one each for all three of you (it replaces the paper card and gives the QR for immigration). No K-ETA needed: Singapore stays visa-free until 31 Dec 2026",
   "Sort mobile data before you land — an eSIM (Airalo / Klook) or pocket WiFi; Naver Maps, KakaoT and the e-Arrival QR all need internet",
-  "Pack Korea plug adapters — Type C/F at 220V (Singapore's Type G plugs won't fit)",
   "Online check-in ~48 h before each flight, check all three passports are valid 6+ months, and save offline copies of the hotel & flight bookings",
   "Download the KakaoT app for taxis before you fly",
   "Download Naver Maps — far better than Google for Korean addresses & transit",
   "Buy T-money cards at the airport (CU / GS25) and load ₩50,000 each",
   "Check the Cheonggyecheon Lantern Festival dates for 12 Nov",
   "Pre-book the 4-hour themed hanbok at Hanboknam (3 pax) online for ~15–20% off — for Sun 8 Nov",
-  "Book the Gyeongbokgung snap photoshoot (3 pax) for Sun 8 Nov ~11:00 — Seoul PASS 'Professional Snap' (~₩240k, hanbok not included) is the value benchmark vs your $242 option",
+  "Book the Gyeongbokgung snap photoshoot (3 pax) for Sun 8 Nov ~11:00",
   "Reserve Sanchon for Sunday dinner (Day 2)",
   "Confirm Hyundai Premium Outlet Songdo hours at ehyundai.com/outlet",
-  "Pack layers — Seoul is 5–12°C in November (one warm jacket each)",
   "Notify your bank about overseas card use in Korea",
   "Claim tax refunds at Incheon T1 on departure — keep receipts & packaged goods",
-  "Buy travel insurance for the three of you",
   "Download Papago for menu/sign translation (and Subway Korea for the metro map)"
 ];
 
